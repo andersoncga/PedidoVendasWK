@@ -1,0 +1,58 @@
+CREATE DATABASE  IF NOT EXISTS `pvwk` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `pvwk`;
+-- MySQL dump 10.13  Distrib 8.0.25, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: pvwk
+-- ------------------------------------------------------
+-- Server version	8.0.25
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `pedidos`
+--
+
+DROP TABLE IF EXISTS `pedidos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `pedidos` (
+  `numeropedido` int NOT NULL AUTO_INCREMENT,
+  `dataemissao` date DEFAULT NULL,
+  `codigocliente` int DEFAULT NULL,
+  `valortotal` decimal(12,2) DEFAULT NULL,
+  PRIMARY KEY (`numeropedido`),
+  KEY `FKCodigoCliente_idx` (`codigocliente`),
+  KEY `IdxDataEmissao` (`dataemissao`),
+  CONSTRAINT `FKCodigoCliente1` FOREIGN KEY (`codigocliente`) REFERENCES `clientes` (`codigo`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pedidos`
+--
+
+LOCK TABLES `pedidos` WRITE;
+/*!40000 ALTER TABLE `pedidos` DISABLE KEYS */;
+INSERT INTO `pedidos` VALUES (1,'2024-10-27',1,1.00),(2,'2024-10-27',2,2.00),(3,'2024-10-27',3,3.00),(4,'2024-10-27',4,4.00),(5,'2024-10-27',5,5.00),(6,'2024-10-27',6,6.00),(7,'2024-10-27',7,7.00),(8,'2024-10-27',8,8.00),(9,'2024-10-27',9,9.00),(10,'2024-10-27',10,10.00),(11,'2024-10-27',11,11.00),(12,'2024-10-27',12,12.00),(13,'2024-10-27',13,13.00),(14,'2024-10-27',14,14.00),(15,'2024-10-27',15,15.00),(16,'2024-10-27',16,16.00),(17,'2024-10-27',17,17.00),(18,'2024-10-27',18,18.00),(19,'2024-10-27',19,19.00),(20,'2024-10-27',20,20.00);
+/*!40000 ALTER TABLE `pedidos` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-10-27 14:53:20
